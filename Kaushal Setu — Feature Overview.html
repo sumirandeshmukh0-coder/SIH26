@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<!-- saved from url=(0056)file:///C:/Users/PC/Downloads/kaushal-setu-features.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kaushal Setu — Feature Overview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link href="./Kaushal Setu — Feature Overview_files/css2" rel="stylesheet">
+<style>
+  :root{
+    --navy:#142B3C;
+    --navy-2:#1D3B52;
+    --paper:#EEEDE4;
+    --ink:#1C2620;
+    --marigold:#E1A33B;
+    --marigold-dark:#B87F1F;
+    --success:#3D7A5C;
+    --danger:#B3492E;
+    --line:#C9C4B4;
+    --muted:#6B7166;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;height:100%;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans',sans-serif;
+    height:100vh;
+    overflow:hidden;
+  }
+  .stage{display:flex;height:100vh;}
+
+  /* ---------- Sidebar / feature list ---------- */
+  .sidebar{
+    width:300px;
+    flex-shrink:0;
+    background:var(--navy);
+    color:#EDEAE0;
+    display:flex;
+    flex-direction:column;
+    height:100vh;
+    overflow-y:auto;
+  }
+  .brand-block{
+    padding:26px 24px 20px;
+    border-bottom:1px solid rgba(237,234,224,0.14);
+  }
+  .brand-block .logo-mark{
+    width:34px;height:34px;border:1.5px solid var(--marigold);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Fraunces',serif;font-weight:700;color:var(--marigold);
+    font-size:16px;margin-bottom:12px;transform:rotate(-2deg);
+  }
+  .brand-block h1{
+    font-family:'Fraunces',serif;font-size:20px;font-weight:600;margin:0;line-height:1.2;
+  }
+  .brand-block .sub{
+    font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:1.4px;
+    text-transform:uppercase;color:#8FA0AC;margin-top:6px;
+  }
+
+  .nav-list{padding:14px 12px;flex:1;}
+  .nav-eyebrow{
+    font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:1.6px;
+    text-transform:uppercase;color:#7E8C97;padding:10px 12px 8px;
+  }
+  .nav-item{
+    display:flex;align-items:center;gap:12px;
+    padding:12px 12px;border-radius:2px;cursor:pointer;
+    border-left:2px solid transparent;
+    transition:background .15s ease, border-color .15s ease;
+  }
+  .nav-item:hover{background:rgba(237,234,224,0.06);}
+  .nav-item.active{
+    background:rgba(225,163,59,0.10);
+    border-left:2px solid var(--marigold);
+  }
+  .nav-item .idx{
+    font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#7E8C97;
+    width:20px;flex-shrink:0;
+  }
+  .nav-item.active .idx{color:var(--marigold);}
+  .nav-item .icon{
+    width:20px;height:20px;flex-shrink:0;
+    stroke:#B9C2C8;fill:none;stroke-width:1.6;
+  }
+  .nav-item.active .icon{stroke:var(--marigold);}
+  .nav-item .label{font-size:13.5px;line-height:1.3;color:#D9D6C9;}
+  .nav-item.active .label{color:#F4F2E9;font-weight:600;}
+
+  .sidebar-foot{
+    padding:16px 24px;border-top:1px solid rgba(237,234,224,0.14);
+    font-family:'IBM Plex Mono',monospace;font-size:10px;color:#7E8C97;line-height:1.6;
+  }
+
+  /* ---------- Main panel ---------- */
+  .panel{
+    flex:1;height:100vh;overflow-y:auto;
+    padding:56px 64px;
+    position:relative;
+  }
+  .slide{display:none;max-width:760px;animation:fade .35s ease;}
+  .slide.active{display:block;}
+  @keyframes fade{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
+
+  .module-tag{
+    display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:11px;
+    letter-spacing:1.2px;text-transform:uppercase;color:var(--marigold-dark);
+    border:1px dashed var(--marigold-dark);padding:5px 10px;transform:rotate(-1deg);
+    margin-bottom:22px;
+  }
+  .slide-icon{
+    width:54px;height:54px;stroke:var(--navy);fill:none;stroke-width:1.4;margin-bottom:20px;
+  }
+  .slide h2{
+    font-family:'Fraunces',serif;font-size:36px;font-weight:600;margin:0 0 6px;line-height:1.1;
+  }
+  .slide .tagline{
+    font-size:15px;color:var(--muted);margin:0 0 26px;font-style:italic;
+    font-family:'Fraunces',serif;
+  }
+  .slide .desc{
+    font-size:15px;line-height:1.75;color:#2C352E;max-width:620px;margin-bottom:30px;
+  }
+
+  .divider{border:none;border-top:1px solid var(--line);margin:28px 0;}
+
+  .points{list-style:none;padding:0;margin:0 0 30px;}
+  .points li{
+    display:flex;gap:14px;padding:14px 0;border-bottom:1px solid #E4E1D4;
+    font-size:14px;line-height:1.6;
+  }
+  .points li:last-child{border-bottom:none;}
+  .points li .bullet{
+    font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--marigold-dark);
+    flex-shrink:0;padding-top:2px;
+  }
+
+  .chip-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:8px;}
+  .chip{
+    font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.3px;
+    border:1px solid var(--line);background:#FBFAF6;color:#3A4238;
+    padding:6px 11px;border-radius:2px;
+  }
+  .chip-label{
+    font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:1.2px;
+    text-transform:uppercase;color:var(--muted);margin-bottom:10px;
+  }
+
+  /* overview grid of module logos */
+  .logo-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+    background:var(--line);border:1px solid var(--line);margin-top:8px;
+  }
+  .logo-cell{
+    background:#FBFAF6;padding:18px 16px;cursor:pointer;transition:background .15s;
+  }
+  .logo-cell:hover{background:#F2F0E5;}
+  .logo-cell .icon{width:22px;height:22px;stroke:var(--navy);fill:none;stroke-width:1.5;margin-bottom:10px;}
+  .logo-cell .name{font-size:12.5px;font-weight:600;color:var(--ink);}
+
+  .stat-row{display:flex;gap:0;border:1px solid var(--line);margin:26px 0;background:#FBFAF6;}
+  .stat-cell{flex:1;padding:14px 16px;border-right:1px solid var(--line);}
+  .stat-cell:last-child{border-right:none;}
+  .stat-cell .n{font-family:'IBM Plex Mono',monospace;font-size:20px;font-weight:600;color:var(--navy);}
+  .stat-cell .l{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.6px;text-transform:uppercase;color:var(--muted);margin-top:2px;}
+
+  .nav-arrows{
+    position:fixed;bottom:28px;right:44px;display:flex;gap:8px;
+  }
+  .nav-arrows button{
+    width:38px;height:38px;border:1px solid var(--line);background:#FBFAF6;
+    border-radius:2px;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  }
+  .nav-arrows button:hover{background:var(--navy);border-color:var(--navy);}
+  .nav-arrows button:hover svg{stroke:#EEEDE4;}
+  .nav-arrows svg{width:16px;height:16px;stroke:var(--ink);fill:none;stroke-width:2;}
+
+  @media(max-width:880px){
+    .stage{flex-direction:column;}
+    .sidebar{width:100%;height:auto;max-height:38vh;}
+    .panel{padding:32px 24px 90px;height:auto;}
+    .logo-grid{grid-template-columns:repeat(2,1fr);}
+  }
+</style>
+</head>
+<body>
+
+<div class="stage">
+  <!-- ============ SIDEBAR ============ -->
+  <div class="sidebar">
+    <div class="brand-block">
+      <div class="logo-mark">KS</div>
+      <h1>Kaushal Setu</h1>
+      <div class="sub">Skilling Outcomes Register</div>
+    </div>
+
+    <div class="nav-list" id="navList">
+  <div class="nav-item" data-idx="0">
+    <span class="idx">00</span>
+    <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>
+    <span class="label">Kaushal Setu</span>
+  </div>
+
+  <div class="nav-item active" data-idx="1">
+    <span class="idx">01</span>
+    <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.4"></circle><path d="M5 20c1.2-4 4-6 7-6s5.8 2 7 6"></path></svg>
+    <span class="label">Consent-Based Trainee Profile</span>
+  </div>
+
+  <div class="nav-item" data-idx="2">
+    <span class="idx">02</span>
+    <svg class="icon" viewBox="0 0 24 24"><path d="M9 15l6-6"></path><path d="M13 6l1.5-1.5a3.5 3.5 0 015 5L18 11"></path><path d="M11 18l-1.5 1.5a3.5 3.5 0 01-5-5L6 13"></path></svg>
+    <span class="label">Job &amp; Placement Linking</span>
+  </div>
+
+  <div class="nav-item " data-idx="3">
+    <span class="idx">03</span>
+    <svg class="icon" viewBox="0 0 24 24"><path d="M6 10a6 6 0 0112 0c0 4 1.5 5.5 1.5 5.5H4.5S6 14 6 10z"></path><path d="M10 18.5a2 2 0 004 0"></path></svg>
+    <span class="label">Automated + Assisted Follow-ups</span>
+  </div>
+
+  <div class="nav-item " data-idx="4">
+    <span class="idx">04</span>
+    <svg class="icon" viewBox="0 0 24 24"><rect x="3.5" y="8" width="17" height="11" rx="1.2"></rect><path d="M8 8V6a2 2 0 012-2h4a2 2 0 012 2v2"></path><path d="M3.5 13h17"></path></svg>
+    <span class="label">Self-Employment &amp; Apprenticeship Tracking</span>
+  </div>
+
+  <div class="nav-item " data-idx="5">
+    <span class="idx">05</span>
+    <svg class="icon" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"></path><path d="M9 12l2 2 4-4.5"></path></svg>
+    <span class="label">Employer Verification</span>
+  </div>
+
+  <div class="nav-item " data-idx="6">
+    <span class="idx">06</span>
+    <svg class="icon" viewBox="0 0 24 24"><path d="M4 17l5-6 4 3 7-9"></path><path d="M15 5h5v5"></path></svg>
+    <span class="label">Wage &amp; Retention Progression</span>
+  </div>
+
+  <div class="nav-item " data-idx="7">
+    <span class="idx">07</span>
+    <svg class="icon" viewBox="0 0 24 24"><path d="M5 20V10"></path><path d="M12 20V4"></path><path d="M19 20v-7"></path></svg>
+    <span class="label">Cohort, Course, Provider &amp; District Analytics</span>
+  </div>
+
+  <div class="nav-item " data-idx="8">
+    <span class="idx">08</span>
+    <svg class="icon" viewBox="0 0 24 24"><path d="M12 4l9 16H3z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg>
+    <span class="label">Skill-Gap &amp; Attrition Detection</span>
+  </div>
+
+  <div class="nav-item " data-idx="9">
+    <span class="idx">09</span>
+    <svg class="icon" viewBox="0 0 24 24"><rect x="5.5" y="11" width="13" height="9" rx="1.2"></rect><path d="M8.5 11V8a3.5 3.5 0 017 0v3"></path></svg>
+    <span class="label">Privacy &amp; Data Protection</span>
+  </div>
+</div>
+
+    <div class="sidebar-foot">
+      Maharashtra State Innovation<br>Society · Dept. of Skills,<br>Employment &amp; Entrepreneurship<br><br>SIH Internal Hackathon 2026
+    </div>
+  </div>
+
+  <!-- ============ MAIN PANEL ============ -->
+  <div class="panel" id="panel">
+    <div class="slide" data-idx="0">
+      <svg class="slide-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>
+      <div class="module-tag">Module 00 — About</div>
+      <h2>Kaushal Setu</h2>
+      <p class="tagline">A living register of what happens after training ends.</p>
+      <p class="desc">Government skilling programmes track enrolment and certification well, but lose sight of trainees the moment they leave the classroom. Kaushal Setu closes that gap — a consent-based system that follows trainees into employment, self-employment or the next attempt, and turns that trail into evidence the department can act on.</p>
+      <div class="stat-row">
+        <div class="stat-cell"><div class="n">18,420</div><div class="l">Trainees tracked</div></div>
+        <div class="stat-cell"><div class="n">91%</div><div class="l">Consent rate</div></div>
+        <div class="stat-cell"><div class="n">10</div><div class="l">Core modules</div></div>
+      </div>
+      <hr class="divider">
+      <div class="chip-label">Modules in this system — click to explore</div>
+      <div class="logo-grid">
+        
+          <div class="logo-cell" data-jump="consent">
+            <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.4"></circle><path d="M5 20c1.2-4 4-6 7-6s5.8 2 7 6"></path></svg>
+            <div class="name">Consent-Based Trainee Profile</div>
+          </div>
+        
+          <div class="logo-cell" data-jump="linking">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M9 15l6-6"></path><path d="M13 6l1.5-1.5a3.5 3.5 0 015 5L18 11"></path><path d="M11 18l-1.5 1.5a3.5 3.5 0 01-5-5L6 13"></path></svg>
+            <div class="name">Job &amp; Placement Linking</div>
+          </div>
+        
+          <div class="logo-cell" data-jump="followup">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M6 10a6 6 0 0112 0c0 4 1.5 5.5 1.5 5.5H4.5S6 14 6 10z"></path><path d="M10 18.5a2 2 0 004 0"></path></svg>
+            <div class="name">Automated + Assisted Follow-ups</div>
+          </div>
+        
+          <div class="logo-cell" data-jump="selfemp">
+            <svg class="icon" viewBox="0 0 24 24"><rect x="3.5" y="8" width="17" height="11" rx="1.2"></rect><path d="M8 8V6a2 2 0 012-2h4a2 2 0 012 2v2"></path><path d="M3.5 13h17"></path></svg>
+            <div class="name">Self-Employment &amp; Apprenticeship Tracking</div>
+          </div>
+        
+          <div class="logo-cell" data-jump="verify">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"></path><path d="M9 12l2 2 4-4.5"></path></svg>
+            <div class="name">Employer Verification</div>
+          </div>
+        
+          <div class="logo-cell" data-jump="wage">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M4 17l5-6 4 3 7-9"></path><path d="M15 5h5v5"></path></svg>
+            <div class="name">Wage &amp; Retention Progression</div>
+          </div>
+        
+          <div class="logo-cell" data-jump="dash">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M5 20V10"></path><path d="M12 20V4"></path><path d="M19 20v-7"></path></svg>
+            <div class="name">Cohort, Course, Provider &amp; District Analytics</div>
+          </div>
+        
+          <div class="logo-cell" data-jump="gap">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M12 4l9 16H3z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg>
+            <div class="name">Skill-Gap &amp; Attrition Detection</div>
+          </div>
+        
+          <div class="logo-cell" data-jump="privacy">
+            <svg class="icon" viewBox="0 0 24 24"><rect x="5.5" y="11" width="13" height="9" rx="1.2"></rect><path d="M8.5 11V8a3.5 3.5 0 017 0v3"></path></svg>
+            <div class="name">Privacy &amp; Data Protection</div>
+          </div>
+        
+      </div>
+    </div>
+    <div class="slide active" data-idx="1">
+      <svg class="slide-icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.4"></circle><path d="M5 20c1.2-4 4-6 7-6s5.8 2 7 6"></path></svg>
+      <div class="module-tag">Module 01</div>
+      <h2>Consent-Based Trainee Profile</h2>
+      <p class="tagline">One record, owned by the trainee.</p>
+      <p class="desc">Every trainee gets a single digital profile linking their course, provider and certificate — created only with explicit, revocable consent. No data is pulled or shared without the trainee knowingly opting in first.</p>
+      <hr class="divider">
+      <ul class="points">
+        <li><span class="bullet">＋</span><span>OTP-verified identity, one unified registration number per trainee</span></li><li><span class="bullet">＋</span><span>Plain-language consent screen shown before any tracking begins</span></li><li><span class="bullet">＋</span><span>Consent can be withdrawn anytime without affecting certification</span></li>
+      </ul>
+      <div class="chip-label">Relevant building blocks</div>
+      <div class="chip-row"><span class="chip">Aadhaar-linked ID (opt-in)</span><span class="chip">OTP auth</span><span class="chip">Consent ledger</span></div>
+    </div>
+    <div class="slide" data-idx="2">
+      <svg class="slide-icon" viewBox="0 0 24 24"><path d="M9 15l6-6"></path><path d="M13 6l1.5-1.5a3.5 3.5 0 015 5L18 11"></path><path d="M11 18l-1.5 1.5a3.5 3.5 0 01-5-5L6 13"></path></svg>
+      <div class="module-tag">Module 02</div>
+      <h2>Job &amp; Placement Linking</h2>
+      <p class="tagline">Connecting the classroom to the workplace.</p>
+      <p class="desc">Training records are linked with placement and employment signals from job portals and employer databases, so a placement isn't just self-reported — it's cross-referenced against real hiring data where available.</p>
+      <hr class="divider">
+      <ul class="points">
+        <li><span class="bullet">＋</span><span>Integrates with National Career Service and partner job portals</span></li><li><span class="bullet">＋</span><span>Captures employer, role, salary and joining date at the point of placement</span></li><li><span class="bullet">＋</span><span>Flags mismatches between claimed and verified placement records</span></li>
+      </ul>
+      <div class="chip-label">Relevant building blocks</div>
+      <div class="chip-row"><span class="chip">NCS API</span><span class="chip">Employer registry</span><span class="chip">REST integration</span></div>
+    </div>
+    <div class="slide" data-idx="3">
+      <svg class="slide-icon" viewBox="0 0 24 24"><path d="M6 10a6 6 0 0112 0c0 4 1.5 5.5 1.5 5.5H4.5S6 14 6 10z"></path><path d="M10 18.5a2 2 0 004 0"></path></svg>
+      <div class="module-tag">Module 03</div>
+      <h2>Automated + Assisted Follow-ups</h2>
+      <p class="tagline">Low-burden check-ins that don't rely on luck.</p>
+      <p class="desc">Scheduled SMS, WhatsApp and IVR follow-ups go out at 3, 6, 12 and 24 months. If a trainee doesn't respond, the case escalates to a human counsellor instead of the record going cold.</p>
+      <hr class="divider">
+      <ul class="points">
+        <li><span class="bullet">＋</span><span>Multi-channel reminders: SMS, WhatsApp, voice call</span></li><li><span class="bullet">＋</span><span>Non-response auto-escalates to assisted (human) follow-up</span></li><li><span class="bullet">＋</span><span>One-tap update links — no app download needed</span></li>
+      </ul>
+      <div class="chip-label">Relevant building blocks</div>
+      <div class="chip-row"><span class="chip">Twilio / WhatsApp API</span><span class="chip">IVR</span><span class="chip">Escalation queue</span></div>
+    </div>
+    <div class="slide" data-idx="4">
+      <svg class="slide-icon" viewBox="0 0 24 24"><rect x="3.5" y="8" width="17" height="11" rx="1.2"></rect><path d="M8 8V6a2 2 0 012-2h4a2 2 0 012 2v2"></path><path d="M3.5 13h17"></path></svg>
+      <div class="module-tag">Module 04</div>
+      <h2>Self-Employment &amp; Apprenticeship Tracking</h2>
+      <p class="tagline">Not every good outcome is a payslip.</p>
+      <p class="desc">Trainees who start a business or take up an apprenticeship get a dedicated tracking path — capturing business type, income and continuity — instead of being mis-logged as "unemployed".</p>
+      <hr class="divider">
+      <ul class="points">
+        <li><span class="bullet">＋</span><span>Separate outcome forms for business owners and apprentices</span></li><li><span class="bullet">＋</span><span>Tracks whether the venture is still active over time</span></li><li><span class="bullet">＋</span><span>Feeds into the same wage-progression analytics as formal jobs</span></li>
+      </ul>
+      <div class="chip-label">Relevant building blocks</div>
+      <div class="chip-row"><span class="chip">Business income log</span><span class="chip">Apprenticeship registry</span></div>
+    </div>
+    <div class="slide" data-idx="5">
+      <svg class="slide-icon" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"></path><path d="M9 12l2 2 4-4.5"></path></svg>
+      <div class="module-tag">Module 05</div>
+      <h2>Employer Verification</h2>
+      <p class="tagline">Trust, but verify.</p>
+      <p class="desc">A lightweight employer-side confirmation step — OTP or portal-based — cross-checks trainee-reported placements, reducing false placement claims that distort provider performance data.</p>
+      <hr class="divider">
+      <ul class="points">
+        <li><span class="bullet">＋</span><span>Employer confirms placement via a simple OTP/portal flow</span></li><li><span class="bullet">＋</span><span>Discrepancies between trainee and employer data are flagged</span></li><li><span class="bullet">＋</span><span>Protects genuine training providers from inflated-claim competitors</span></li>
+      </ul>
+      <div class="chip-label">Relevant building blocks</div>
+      <div class="chip-row"><span class="chip">Employer portal</span><span class="chip">OTP confirmation</span></div>
+    </div>
+    <div class="slide" data-idx="6">
+      <svg class="slide-icon" viewBox="0 0 24 24"><path d="M4 17l5-6 4 3 7-9"></path><path d="M15 5h5v5"></path></svg>
+      <div class="module-tag">Module 06</div>
+      <h2>Wage &amp; Retention Progression</h2>
+      <p class="tagline">A job on day one isn't the whole story.</p>
+      <p class="desc">Salary and job-retention are tracked longitudinally at 3, 6, 12 and 24 months, revealing whether training leads to durable, growing careers — not just a first placement.</p>
+      <hr class="divider">
+      <ul class="points">
+        <li><span class="bullet">＋</span><span>Median wage tracked per cohort over 24 months</span></li><li><span class="bullet">＋</span><span>Retention rate — still employed vs. dropped out</span></li><li><span class="bullet">＋</span><span>Early-warning signal when a course's wage curve flattens</span></li>
+      </ul>
+      <div class="chip-label">Relevant building blocks</div>
+      <div class="chip-row"><span class="chip">Time-series analytics</span><span class="chip">Cohort tracking</span></div>
+    </div>
+    <div class="slide" data-idx="7">
+      <svg class="slide-icon" viewBox="0 0 24 24"><path d="M5 20V10"></path><path d="M12 20V4"></path><path d="M19 20v-7"></path></svg>
+      <div class="module-tag">Module 07</div>
+      <h2>Cohort, Course, Provider &amp; District Analytics</h2>
+      <p class="tagline">The dashboard the department actually needed.</p>
+      <p class="desc">One dashboard rolls outcome data up by course, training provider, district and demographic group — so officials can compare, defend budgets, and target underperforming programmes.</p>
+      <hr class="divider">
+      <ul class="points">
+        <li><span class="bullet">＋</span><span>Provider leaderboard by verified placement rate</span></li><li><span class="bullet">＋</span><span>District-level heatmaps for regional targeting</span></li><li><span class="bullet">＋</span><span>Demographic breakdowns to catch equity gaps</span></li>
+      </ul>
+      <div class="chip-label">Relevant building blocks</div>
+      <div class="chip-row"><span class="chip">Power BI / Metabase</span><span class="chip">PostgreSQL analytics layer</span></div>
+    </div>
+    <div class="slide" data-idx="8">
+      <svg class="slide-icon" viewBox="0 0 24 24"><path d="M12 4l9 16H3z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg>
+      <div class="module-tag">Module 08</div>
+      <h2>Skill-Gap &amp; Attrition Detection</h2>
+      <p class="tagline">Find out why, not just what.</p>
+      <p class="desc">When placement or retention drops for a course or cohort, the system auto-flags likely causes — market mismatch, low wages, employer shortage — from patterns in the outcome data.</p>
+      <hr class="divider">
+      <ul class="points">
+        <li><span class="bullet">＋</span><span>Auto-flags courses with low market demand or high attrition</span></li><li><span class="bullet">＋</span><span>Surfaces the most common trainee-reported non-placement reasons</span></li><li><span class="bullet">＋</span><span>Turns raw non-placement data into a remedial-action list</span></li>
+      </ul>
+      <div class="chip-label">Relevant building blocks</div>
+      <div class="chip-row"><span class="chip">Rule-based flags</span><span class="chip">Pattern detection</span></div>
+    </div>
+    <div class="slide" data-idx="9">
+      <svg class="slide-icon" viewBox="0 0 24 24"><rect x="5.5" y="11" width="13" height="9" rx="1.2"></rect><path d="M8.5 11V8a3.5 3.5 0 017 0v3"></path></svg>
+      <div class="module-tag">Module 09</div>
+      <h2>Privacy &amp; Data Protection</h2>
+      <p class="tagline">Built to earn trust, not just collect data.</p>
+      <p class="desc">Every layer of the system — consent, storage, access — is designed around the principle that outcome data is sensitive personal information, not a KPI to be extracted at any cost.</p>
+      <hr class="divider">
+      <ul class="points">
+        <li><span class="bullet">＋</span><span>End-to-end encryption of personal and income data</span></li><li><span class="bullet">＋</span><span>Role-based access — officials see only what their role permits</span></li><li><span class="bullet">＋</span><span>Full audit trail of who accessed what, and when</span></li>
+      </ul>
+      <div class="chip-label">Relevant building blocks</div>
+      <div class="chip-row"><span class="chip">Encryption at rest</span><span class="chip">RBAC</span><span class="chip">Audit logging</span></div>
+    </div></div>
+</div>
+
+<div class="nav-arrows">
+  <button onclick="step(-1)" aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"></path></svg></button>
+  <button onclick="step(1)" aria-label="Next"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"></path></svg></button>
+</div>
+
+<script>
+/* ---------------- Icon set (original simple line icons) ---------------- */
+const icons = {
+  home: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/>',
+  user: '<circle cx="12" cy="8" r="3.4"/><path d="M5 20c1.2-4 4-6 7-6s5.8 2 7 6"/>',
+  link: '<path d="M9 15l6-6"/><path d="M13 6l1.5-1.5a3.5 3.5 0 015 5L18 11"/><path d="M11 18l-1.5 1.5a3.5 3.5 0 01-5-5L6 13"/>',
+  bell: '<path d="M6 10a6 6 0 0112 0c0 4 1.5 5.5 1.5 5.5H4.5S6 14 6 10z"/><path d="M10 18.5a2 2 0 004 0"/>',
+  briefcase: '<rect x="3.5" y="8" width="17" height="11" rx="1.2"/><path d="M8 8V6a2 2 0 012-2h4a2 2 0 012 2v2"/><path d="M3.5 13h17"/>',
+  shield: '<path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4.5"/>',
+  trend: '<path d="M4 17l5-6 4 3 7-9"/><path d="M15 5h5v5"/>',
+  chart: '<path d="M5 20V10"/><path d="M12 20V4"/><path d="M19 20v-7"/>',
+  alert: '<path d="M12 4l9 16H3z"/><path d="M12 10v4"/><path d="M12 17h.01"/>',
+  lock: '<rect x="5.5" y="11" width="13" height="9" rx="1.2"/><path d="M8.5 11V8a3.5 3.5 0 017 0v3"/>'
+};
+function iconSvg(name, cls){
+  return `<svg class="${cls}" viewBox="0 0 24 24">${icons[name]}</svg>`;
+}
+
+/* ---------------- Content model ---------------- */
+const slides = [
+  {
+    id:'overview', icon:'home', title:'Kaushal Setu', tag:'Module 00 — About',
+    tagline:'A living register of what happens after training ends.',
+    desc:`Government skilling programmes track enrolment and certification well, but lose sight of trainees the moment they leave the classroom. Kaushal Setu closes that gap — a consent-based system that follows trainees into employment, self-employment or the next attempt, and turns that trail into evidence the department can act on.`,
+    isOverview:true
+  },
+  {
+    id:'consent', icon:'user', title:'Consent-Based Trainee Profile', tag:'Module 01',
+    tagline:'One record, owned by the trainee.',
+    desc:`Every trainee gets a single digital profile linking their course, provider and certificate — created only with explicit, revocable consent. No data is pulled or shared without the trainee knowingly opting in first.`,
+    points:[
+      'OTP-verified identity, one unified registration number per trainee',
+      'Plain-language consent screen shown before any tracking begins',
+      'Consent can be withdrawn anytime without affecting certification'
+    ],
+    chips:['Aadhaar-linked ID (opt-in)','OTP auth','Consent ledger']
+  },
+  {
+    id:'linking', icon:'link', title:'Job & Placement Linking', tag:'Module 02',
+    tagline:'Connecting the classroom to the workplace.',
+    desc:`Training records are linked with placement and employment signals from job portals and employer databases, so a placement isn't just self-reported — it's cross-referenced against real hiring data where available.`,
+    points:[
+      'Integrates with National Career Service and partner job portals',
+      'Captures employer, role, salary and joining date at the point of placement',
+      'Flags mismatches between claimed and verified placement records'
+    ],
+    chips:['NCS API','Employer registry','REST integration']
+  },
+  {
+    id:'followup', icon:'bell', title:'Automated + Assisted Follow-ups', tag:'Module 03',
+    tagline:'Low-burden check-ins that don\'t rely on luck.',
+    desc:`Scheduled SMS, WhatsApp and IVR follow-ups go out at 3, 6, 12 and 24 months. If a trainee doesn't respond, the case escalates to a human counsellor instead of the record going cold.`,
+    points:[
+      'Multi-channel reminders: SMS, WhatsApp, voice call',
+      'Non-response auto-escalates to assisted (human) follow-up',
+      'One-tap update links — no app download needed'
+    ],
+    chips:['Twilio / WhatsApp API','IVR','Escalation queue']
+  },
+  {
+    id:'selfemp', icon:'briefcase', title:'Self-Employment & Apprenticeship Tracking', tag:'Module 04',
+    tagline:'Not every good outcome is a payslip.',
+    desc:`Trainees who start a business or take up an apprenticeship get a dedicated tracking path — capturing business type, income and continuity — instead of being mis-logged as "unemployed".`,
+    points:[
+      'Separate outcome forms for business owners and apprentices',
+      'Tracks whether the venture is still active over time',
+      'Feeds into the same wage-progression analytics as formal jobs'
+    ],
+    chips:['Business income log','Apprenticeship registry']
+  },
+  {
+    id:'verify', icon:'shield', title:'Employer Verification', tag:'Module 05',
+    tagline:'Trust, but verify.',
+    desc:`A lightweight employer-side confirmation step — OTP or portal-based — cross-checks trainee-reported placements, reducing false placement claims that distort provider performance data.`,
+    points:[
+      'Employer confirms placement via a simple OTP/portal flow',
+      'Discrepancies between trainee and employer data are flagged',
+      'Protects genuine training providers from inflated-claim competitors'
+    ],
+    chips:['Employer portal','OTP confirmation']
+  },
+  {
+    id:'wage', icon:'trend', title:'Wage & Retention Progression', tag:'Module 06',
+    tagline:'A job on day one isn\'t the whole story.',
+    desc:`Salary and job-retention are tracked longitudinally at 3, 6, 12 and 24 months, revealing whether training leads to durable, growing careers — not just a first placement.`,
+    points:[
+      'Median wage tracked per cohort over 24 months',
+      'Retention rate — still employed vs. dropped out',
+      'Early-warning signal when a course\'s wage curve flattens'
+    ],
+    chips:['Time-series analytics','Cohort tracking']
+  },
+  {
+    id:'dash', icon:'chart', title:'Cohort, Course, Provider & District Analytics', tag:'Module 07',
+    tagline:'The dashboard the department actually needed.',
+    desc:`One dashboard rolls outcome data up by course, training provider, district and demographic group — so officials can compare, defend budgets, and target underperforming programmes.`,
+    points:[
+      'Provider leaderboard by verified placement rate',
+      'District-level heatmaps for regional targeting',
+      'Demographic breakdowns to catch equity gaps'
+    ],
+    chips:['Power BI / Metabase','PostgreSQL analytics layer']
+  },
+  {
+    id:'gap', icon:'alert', title:'Skill-Gap & Attrition Detection', tag:'Module 08',
+    tagline:'Find out why, not just what.',
+    desc:`When placement or retention drops for a course or cohort, the system auto-flags likely causes — market mismatch, low wages, employer shortage — from patterns in the outcome data.`,
+    points:[
+      'Auto-flags courses with low market demand or high attrition',
+      'Surfaces the most common trainee-reported non-placement reasons',
+      'Turns raw non-placement data into a remedial-action list'
+    ],
+    chips:['Rule-based flags','Pattern detection']
+  },
+  {
+    id:'privacy', icon:'lock', title:'Privacy & Data Protection', tag:'Module 09',
+    tagline:'Built to earn trust, not just collect data.',
+    desc:`Every layer of the system — consent, storage, access — is designed around the principle that outcome data is sensitive personal information, not a KPI to be extracted at any cost.`,
+    points:[
+      'End-to-end encryption of personal and income data',
+      'Role-based access — officials see only what their role permits',
+      'Full audit trail of who accessed what, and when'
+    ],
+    chips:['Encryption at rest','RBAC','Audit logging']
+  }
+];
+
+const overviewLogos = slides.filter(s=>!s.isOverview);
+
+/* ---------------- Render nav ---------------- */
+const navList = document.getElementById('navList');
+navList.innerHTML = slides.map((s,i)=>`
+  <div class="nav-item ${i===0?'active':''}" data-idx="${i}">
+    <span class="idx">${String(i).padStart(2,'0')}</span>
+    ${iconSvg(s.icon,'icon')}
+    <span class="label">${s.title}</span>
+  </div>
+`).join('');
+
+/* ---------------- Render panel ---------------- */
+const panel = document.getElementById('panel');
+panel.innerHTML = slides.map((s,i)=>{
+  if(s.isOverview){
+    return `
+    <div class="slide ${i===0?'active':''}" data-idx="${i}">
+      ${iconSvg(s.icon,'slide-icon')}
+      <div class="module-tag">${s.tag}</div>
+      <h2>${s.title}</h2>
+      <p class="tagline">${s.tagline}</p>
+      <p class="desc">${s.desc}</p>
+      <div class="stat-row">
+        <div class="stat-cell"><div class="n">18,420</div><div class="l">Trainees tracked</div></div>
+        <div class="stat-cell"><div class="n">91%</div><div class="l">Consent rate</div></div>
+        <div class="stat-cell"><div class="n">10</div><div class="l">Core modules</div></div>
+      </div>
+      <hr class="divider">
+      <div class="chip-label">Modules in this system — click to explore</div>
+      <div class="logo-grid">
+        ${overviewLogos.map(m=>`
+          <div class="logo-cell" data-jump="${m.id}">
+            ${iconSvg(m.icon,'icon')}
+            <div class="name">${m.title}</div>
+          </div>
+        `).join('')}
+      </div>
+    </div>`;
+  }
+  return `
+    <div class="slide" data-idx="${i}">
+      ${iconSvg(s.icon,'slide-icon')}
+      <div class="module-tag">${s.tag}</div>
+      <h2>${s.title}</h2>
+      <p class="tagline">${s.tagline}</p>
+      <p class="desc">${s.desc}</p>
+      <hr class="divider">
+      <ul class="points">
+        ${s.points.map(p=>`<li><span class="bullet">＋</span><span>${p}</span></li>`).join('')}
+      </ul>
+      <div class="chip-label">Relevant building blocks</div>
+      <div class="chip-row">${s.chips.map(c=>`<span class="chip">${c}</span>`).join('')}</div>
+    </div>`;
+}).join('');
+
+/* ---------------- Navigation logic ---------------- */
+let current = 0;
+function goTo(idx){
+  current = idx;
+  document.querySelectorAll('.nav-item').forEach(el=>el.classList.toggle('active', +el.dataset.idx===idx));
+  document.querySelectorAll('.slide').forEach(el=>el.classList.toggle('active', +el.dataset.idx===idx));
+  document.getElementById('panel').scrollTo({top:0,behavior:'smooth'});
+}
+document.querySelectorAll('.nav-item').forEach(el=>{
+  el.addEventListener('click', ()=>goTo(+el.dataset.idx));
+});
+panel.addEventListener('click', (e)=>{
+  const jumpEl = e.target.closest('[data-jump]');
+  if(jumpEl){
+    const targetIdx = slides.findIndex(s=>s.id===jumpEl.dataset.jump);
+    if(targetIdx>=0) goTo(targetIdx);
+  }
+});
+function step(dir){
+  let next = current + dir;
+  if(next<0) next = slides.length-1;
+  if(next>=slides.length) next = 0;
+  goTo(next);
+}
+document.addEventListener('keydown', (e)=>{
+  if(e.key==='ArrowRight') step(1);
+  if(e.key==='ArrowLeft') step(-1);
+});
+</script>
+
+
+
+</body></html>
